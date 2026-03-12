@@ -55,39 +55,7 @@
 
     input[type="password"]:focus, textarea:focus { border-color: #888; background: #fff; }
 
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f0ede8;
-      border-radius: 20px;
-      padding: 6px 14px 6px 10px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .brand-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #2d7a4f;
-    }
-
-    .anchors {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .anchor-tag {
-      font-size: 12px;
-      background: #f0ede8;
-      border-radius: 4px;
-      padding: 3px 8px;
-      color: #555;
-    }
-
-    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 620px) { .cols { grid-template-columns: 1fr; } }
 
     .col-label {
@@ -161,11 +129,6 @@
     </div>
 
     <div class="card">
-      <label>Brand Profile</label>
-      <div id="brandInfo"></div>
-    </div>
-
-    <div class="card">
       <div class="cols">
         <div>
           <div class="col-label">Your copy</div>
@@ -189,17 +152,7 @@
     import { SAMPLE_BRAND_PROFILE } from "./src/lib/brandProfile.js";
     import { buildRefinementRequest } from "./src/lib/src/lib/promptModule.js";
 
-    // --- Render brand info ---
     const profile = SAMPLE_BRAND_PROFILE;
-    document.getElementById("brandInfo").innerHTML = `
-      <div class="brand-pill">
-        <span class="brand-dot"></span>
-        ${profile.brandName}
-      </div>
-      <div class="anchors">
-        ${profile.anchors.map(a => `<span class="anchor-tag">${a.label}</span>`).join("")}
-      </div>
-    `;
 
     // --- Refine ---
     const btn = document.getElementById("refineBtn");
