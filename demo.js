@@ -9,7 +9,7 @@
 // =============================================================================
 
 import { SAMPLE_BRAND_PROFILE } from "./src/lib/brandProfile.js";
-import { buildRefinementRequest } from "./src/lib/src/lib/promptModule.js";
+import { buildRefinementRequest } from "./src/lib/promptModule.js";
 
 const API_KEY = process.env.ANTHROPIC_API_KEY;
 if (!API_KEY) {
