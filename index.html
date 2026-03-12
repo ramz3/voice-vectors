@@ -154,13 +154,20 @@
 
     const profile = SAMPLE_BRAND_PROFILE;
 
+    // --- Persist API key ---
+    const apiKeyInput = document.getElementById("apiKey");
+    apiKeyInput.value = localStorage.getItem("anthropic_api_key") ?? "";
+    apiKeyInput.addEventListener("change", () => {
+      localStorage.setItem("anthropic_api_key", apiKeyInput.value.trim());
+    });
+
     // --- Refine ---
     const btn = document.getElementById("refineBtn");
     const outputEl = document.getElementById("output");
     const noteEl = document.getElementById("lightRevisionNote");
 
     btn.addEventListener("click", async () => {
-      const apiKey = document.getElementById("apiKey").value.trim();
+      const apiKey = apiKeyInput.value.trim();
       const userCopy = document.getElementById("inputCopy").value.trim();
 
       if (!apiKey) { alert("Enter your Anthropic API key first."); return; }
